@@ -1,0 +1,20 @@
+{
+    "demo": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-vedaaws-demo-140246-authRole",
+            "UnauthRoleArn": "arn:aws:iam::196787228635:role/amplify-vedaaws-demo-140246-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::196787228635:role/amplify-vedaaws-demo-140246-authRole",
+            "Region": "ap-south-1",
+            "DeploymentBucketName": "amplify-vedaaws-demo-140246-deployment",
+            "UnauthRoleName": "amplify-vedaaws-demo-140246-unauthRole",
+            "StackName": "amplify-vedaaws-demo-140246",
+            "StackId": "arn:aws:cloudformation:ap-south-1:196787228635:stack/amplify-vedaaws-demo-140246/cbcd2990-b399-11ea-9b63-0a6895f2a65c",
+            "AmplifyAppId": "dm2s9gnkcbo85"
+        },
+        "categories": {
+            "auth": {
+                "vedaawsdbfb7db5": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+type Student @model {
+  id: ID!
+  regnum: String!
+  name: String!
+  rollnum: Int!
+  classSection: ClassSection! @connection(name: "classStudent")
+  marks: [Marks] @connection(name: "studentMarks")
+}
+
+type Marks @model {
+  subject: Subject! @connection(name: "subjectMarks")
+  assignment: [Int!]
+  exams: [Int!]
+  student: Student! @connection(name: "studentMarks") 
+}
+
+type ClassSection @model {
+  id: ID!
+  name: String!
+  strength: Int!
+  timetable: [TimetableSlot!]! @connection(name: "classTimetable")
+  students: [Student]! @connection(name: "classStudent")
+  school: School! @connection(name: "classSchool")
+}
+
+
+type TimetableSlot @model {
+  id: ID!
+  time: Int!
+  subject: Subject!
+  faculty: Faculty! @connection(name: "facultyTimetable")
+  day: String!
+  classSection: ClassSection! @connection(name: "classTimetable")
+  
+}
+
+type School @model {
+  id: ID!
+  classSection: [ClassSection!] @connection(name: "classSchool")
+}
+
+type Subject @model{
+  id: ID!
+  subjectCode: String!
+  subjectName: String!
+  marks: [Marks!] @connection(name: "subjectMarks")
+}
+
+type Faculty @model{
+  id: ID!
+  facultyName: String!
+  regnum: Int!
+  timetableSlot: [TimetableSlot!] @connection(name: "facultyTimetable")
+  department: Department! @connection(name: "facultyDepartment")
+}
+
+type Department @model{
+  id: ID!
+  departmentName: String!
+  faculty: [Faculty!] @connection(name: "facultyDepartment")
+}
+
+
+# type Exam @model {
+#   id: ID!
+#   examnum: Int!
+#   examMarks: Int!
+# }
+
+# type Assignment @model {
+#   id: ID!
+#   assignmentNum: Int!
+#   assignmentMarks: Int!
+# }
+
+# type RegSubject @model {
+#   id: ID!
+#   subject: Subject!
+#   faculty: Faculty!
+#   attendedclasses: Int!
+#   totalclasses: Int!
+#   assigment: [Assignment!]
+#   exams: [Exam!]
+# }
